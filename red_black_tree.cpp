@@ -1,4 +1,5 @@
 #include <iostream>
+using namespace std;
 
 enum Color { RED, BLACK };
 
@@ -82,7 +83,7 @@ private:
                     }
 
                     rightRotate(grandParent);
-                    std::swap(parent->color, grandParent->color);
+                    swap(parent->color, grandParent->color);
                     node = parent;
                 }
             } else {
@@ -101,7 +102,7 @@ private:
                     }
 
                     leftRotate(grandParent);
-                    std::swap(parent->color, grandParent->color);
+                    swap(parent->color, grandParent->color);
                     node = parent;
                 }
             }
@@ -229,7 +230,7 @@ private:
         }
 
         inorderTraversal(node->left);
-        std::cout << node->data << " ";
+        cout << node->data << " ";
         inorderTraversal(node->right);
     }
 
@@ -255,7 +256,7 @@ public:
             } else if (value > current->data) {
                 current = current->right;
             } else {
-                std::cout << "Duplicate value: " << value << std::endl;
+                cout << "Duplicate value: " << value << endl;
                 delete newNode;
                 return;
             }
@@ -274,7 +275,7 @@ public:
     void remove(int value) {
         Node* node = searchNode(root, value);
         if (node == nullptr) {
-            std::cout << "Node not found: " << value << std::endl;
+            cout << "Node not found: " << value << endl;
             return;
         }
 
@@ -284,16 +285,16 @@ public:
     void search(int value) {
         Node* node = searchNode(root, value);
         if (node != nullptr) {
-            std::cout << "Node found: " << value << std::endl;
+            cout << "Node found: " << value << endl;
         } else {
-            std::cout << "Node not found: " << value << std::endl;
+            cout << "Node not found: " << value << endl;
         }
     }
 
     void printInorder() {
-        std::cout << "Inorder traversal: ";
+        cout << "Inorder traversal: ";
         inorderTraversal(root);
-        std::cout << std::endl;
+        cout << endl;
     }
 };
 
